@@ -40,8 +40,6 @@ public class RSA {
 			.setStartDate(notBefore.getTime())
 			.setEndDate(notAfter.getTime())
 			.setEncryptionRequired()
-			.setKeySize(2048)
-			.setKeyType("RSA")
 			.build();
 		KeyPairGenerator kpGenerator = KeyPairGenerator.getInstance("RSA", KEYSTORE_PROVIDER);
 		kpGenerator.initialize(spec);
