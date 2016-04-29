@@ -47,19 +47,12 @@ SecureStorageiOS.prototype = {
 
 var SecureStorageAndroid = function (service) {
     this.service = service;
-    //cordova.exec(success, error, "SecureStorage", "init", [this.service]);
     return this;
 };
 
 SecureStorageAndroid.prototype = {
-    inited: false,
     init: function (success, error) {
-        if (this.inited) return;
-        var self = this;
-        cordova.exec(function () {
-            self.inited = true;
-            success(arguments);
-        }, error, "SecureStorage", "init", [this.service]);
+        cordova.exec(success, error, "SecureStorage", "init", [this.service]);
     },
     get: function (success, error, key) {
         if (!_checkCallbacks(success, error))
